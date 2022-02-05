@@ -1,0 +1,42 @@
+{
+  "name": "@maptalks/MSDJSONLoader",
+  "version": "0.1.0",
+  "description": "A utility lib to read json exported by maptalks map instance",
+  "module": "dist/MSDJSONLoader.es.js",
+  "main": "dist/MSDJSONLoader.js",
+  "scripts": {
+    "build": "rollup --environment BUILD:production -c rollup.config.js",
+    "build-dev": "rollup -c rollup.config.js",
+    "dev": "rollup -w -c rollup.config.js",
+    "test": "mocha -r @babel/register test/specs.js",
+    "tdd": "mocha -w -r @babel/register test/specs.js",
+    "prepare": "npm run lint && npm run build",
+    "lint": "eslint src/**/*.js",
+    "preversion": "npm run lint"
+  },
+  "files": [
+    "dist/MSDJSONLoader.es.js",
+    "dist/MSDJSONLoader.js"
+  ],
+  "keywords": [
+    "maptalks",
+    "msd"
+  ],
+  "author": "fuzhenn",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "@babel/cli": "^7.15.0",
+    "@babel/core": "^7.15.0",
+    "@babel/eslint-parser": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/register": "^7.15.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-mocha": "^9.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "mocha": "^9.0.3",
+    "node-fetch": "^2.6.7",
+    "rollup": "^2.56.2",
+    "rollup-plugin-terser": "^5.3.1"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "jsonVersion": "1.0",
+  "version": "1.0.0-beta.6",
+  "extent": {
+    "xmin": -74.02061158254088,
+    "ymin": 40.70275599465569,
+    "xmax": -73.99733000829161,
+    "ymax": 40.718321813876315
+  },
+  "options": {
+    "bearing": 0,
+    "pitch": 0,
+    "spatialReference": {},
+    "lights": {
+      "directional": {
+        "direction": [1, 0, -1],
+        "color": [1, 1, 1]
+      },
+      "ambient": {
+        "resource": null,
+        "exposure": 1,
+        "hsv": [0, 0, 0],
+        "orientation": 0
+      }
+    },
+    "seamlessZoom": true,
+    "center": {
+      "x": -74.00897079541625,
+      "y": 40.71053935910729
+    },
+    "zoom": 16
+  },
+  "layers": [
+    {
+      "type": "GroupGLLayer",
+      "id": "group",
+      "layers": [
+        {
+          "type": "VectorTileLayer",
+          "id": "vt0",
+          "options": {
+            "urlTemplate": "https://api.mapbox.com/v4/mapbox.mapbox-streets-v7/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiemhlbmZ1IiwiYSI6ImNqamY2OXF0azA1M3kzdnF0enRoZm83aXQifQ.WpJebxPjCnmszaxHDRBrtw",
+            "spatialReference": "preset-vt-3857",
+            "style": {
+              "style": [
+                {
+                  "filter": [
+                    "all",
+                    ["==", "$layer", "building"],
+                    ["==", "$type", "Polygon"]
+                  ],
+                  "renderPlugin": {
+                    "dataConfig": {
+                      "type": "fill"
+                    },
+                    "sceneConfig": {},
+                    "type": "fill"
+                  },
+                  "symbol": {
+                    "polygonBloom": false,
+                    "polygonFill": {
+                      "type": "categorical",
+                      "default": [0.345, 0.345, 0.502, 1],
+                      "stops": [
+                        [
+                          16,
+                          [
+                            0.1843137254901961, 0.1843137254901961,
+                            0.796078431372549, 1
+                          ]
+                        ]
+                      ]
+                    },
+                    "polygonOpacity": 1,
+                    "polygonPatternFile": null,
+                    "visible": true
+                  }
+                },
+                {
+                  "filter": [
+                    "all",
+                    ["==", "$layer", "building"],
+                    ["==", "$type", "Polygon"]
+                  ],
+                  "renderPlugin": {
+                    "dataConfig": {
+                      "type": "line"
+                    },
+                    "sceneConfig": {},
+                    "type": "line"
+                  },
+                  "symbol": {
+                    "lineBloom": false,
+                    "lineCap": "butt",
+                    "lineColor": [0.73, 0.73, 0.73, 1],
+                    "lineDasharray": [0, 0, 0, 0],
+                    "lineDashColor": [1, 1, 1, 0],
+                    "lineDx": 0,
+                    "lineDy": 0,
+                    "lineGapWidth": 0,
+                    "lineJoin": "miter",
+                    "lineOpacity": 1,
+                    "linePatternAnimSpeed": 0,
+                    "linePatternFile": null,
+                    "lineJoinPatternMode": 0,
+                    "lineWidth": 2,
+                    "visible": true
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "options": {
+        "sceneConfig": {
+          "environment": {
+            "enable": true,
+            "mode": 0,
+            "level": 0,
+            "brightness": 0
+          },
+          "shadow": {
+            "type": "esm",
+            "enable": true,
+            "quality": "high",
+            "opacity": 0.5,
+            "color": [0, 0, 0],
+            "blurOffset": 1
+          },
+          "postProcess": {
+            "enable": true,
+            "antialias": {
+              "enable": true,
+              "taa": true,
+              "jitterRatio": 0.25
+            },
+            "ssr": {
+              "enable": true
+            },
+            "bloom": {
+              "enable": true,
+              "threshold": 0,
+              "factor": 1,
+              "radius": 1
+            },
+            "ssao": {
+              "enable": true,
+              "bias": 0.08,
+              "radius": 0.08,
+              "intensity": 1.5
+            },
+            "sharpen": {
+              "enable": false,
+              "factor": 0.2
+            },
+            "outline": {
+              "enable": true,
+              "outlineFactor": 0.3,
+              "highlightFactor": 0.2,
+              "outlineWidth": 1,
+              "outlineColor": [1, 1, 0]
+            }
+          },
+          "ground": {
+            "enable": false,
+            "renderPlugin": {
+              "type": "fill"
+            },
+            "symbol": {
+              "polygonFill": [0.54, 0.54, 0.54, 1],
+              "polygonOpacity": 1
+            },
+            "extras": {
+              "currentMaterial": ""
+            }
+          }
+        }
+      }
+    }
+  ]
+}
