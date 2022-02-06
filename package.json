@@ -1,5 +1,5 @@
 {
-  "name": "@maptalks/MSDJSONLoader",
+  "name": "@maptalks/msdjsonloader",
   "version": "0.1.0",
   "description": "A utility lib to read json exported by maptalks map instance",
   "module": "dist/MSDJSONLoader.mjs",
