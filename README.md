@@ -10,7 +10,7 @@ MSDJSONLoader提供了各种接口，用于读取MSD导出的JSON中的整个地
 ## 安装
 
 ```
-npm i @maptalks/MSDJSONLoader
+npm i @maptalks/msdjsonloader
 ```
 或
 ```
