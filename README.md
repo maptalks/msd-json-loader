@@ -29,6 +29,8 @@ MSDJSONLoader中会自动把资源的相对路径替换为绝对路径
 
 按照默认方式加载时，MSDJSONLoader会用map.json的路径 `path/to/map.json` 将资源路径中的 `./res` 替换为 `path/to/res`。
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'http://example.com/map.json'
 });
@@ -54,6 +56,8 @@ symbol: {
 
 您也可以在创建MSDJSONLoader时，通过 basePath 参数指定一个根路径，例如：
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'http://example.com/map.json',
     basePath: 'http://resources.example.com'
@@ -95,6 +99,8 @@ new MSDJSONLoader(options);
 ### `getMapJSON()`
 获取Map JSON对象，可以用于创建地图对象。
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
@@ -109,6 +115,8 @@ const map = maptalks.Map.fromJSON('map', mapJSON);
 ### `getView()`
 获取MSD JSON中地图的view（包括 center, zoom, pitch, bearing）。
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
@@ -122,6 +130,8 @@ map.setView(view);
 ### `getSceneConfig()`
 获取MSD JSON中GroupGLLayer的sceneConfig。
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
@@ -135,6 +145,8 @@ groupLayer.setSceneConfig(sceneConfig);
 ### `getLights()`
 获取MSD JSON中map的Lights配置。
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
@@ -148,6 +160,8 @@ map.setLights(lights);
 ### `getLayer(id)`
 获取MSD JSON中某个图层的LayerJSON对象。
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
@@ -162,6 +176,8 @@ const layer = loader.getLayer('vt0');
 获取MSD JSON中所有图层的LayerJSON对象数组。
 
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
@@ -178,6 +194,8 @@ const layers = loader.getLayers();
 ### `getId()`
 获取图层的id
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
@@ -192,6 +210,8 @@ const id = layer.getId();
 获取图层JSON对象，可以用于创建Layer实例。
 
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
@@ -208,6 +228,8 @@ const vtLayer = maptalks.Layer.fromJSON(json);
 获取图层的样式对象，其中资源路径都是绝对路径。
 
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
@@ -226,6 +248,8 @@ const style = layer.getStyle();
 因此GeoJSONVectorTileLayer的getData方法返回的是geojson文件的绝对路径形式的url。
 
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
@@ -244,6 +268,8 @@ const data = layer.getData();
 不支持的图层会返回null。
 
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
@@ -263,6 +289,8 @@ const marker = maptalks.Geometry.fromJSON(markerJSON);
 不支持的图层会返回空数组。
 
 ```js
+import MSDJSONLoader from '@maptalks/MSDJSONLoader';
+
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
 });
