@@ -7,6 +7,16 @@ MSDJSONLoader提供了各种接口，用于读取MSD导出的JSON中的整个地
 
 您可以方便的使用这个工具库来选择MSD文件中需要的资源，加载到您自己的地图程序中。
 
+## 安装
+
+```
+npm i @maptalks/MSDJSONLoader
+```
+或
+```
+<script type="text/javascript" src="https://unpkg.com/@maptalks/MSDJSONLoader/dist/MSDJSONLoader.js"></script>
+```
+
 ## 相对路径转换
 
 MSD JSON中的资源路径都是相对路径，相对的是map.json的存储路径。
