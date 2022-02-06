@@ -33,7 +33,7 @@ class LayerJSON {
             return null;
         } 
         for (let i = 0; i < geometries.length; i++) {
-            if (geometries[i] && geometries[i].id === id) {
+            if (geometries[i] && geometries[i].options && geometries[i].options.id === id) {
                 return copyJSON(geometries[i]);
             }
         }
@@ -48,7 +48,7 @@ class LayerJSON {
     }
 }
 
-export default class MapJSONLoader {
+export default class MSDJSONLoader {
 
     constructor(options) {
         this._options = options || {};
@@ -56,20 +56,37 @@ export default class MapJSONLoader {
 
     load() {
         const data = this._options.data;
+        let resRootPath = this._options.basePath;
         if (isString(data)) {
             // a remote one
             const fetchFunction = this._options.fetchFunction || fetch;
             const fetchOptions = this._options.fetchOptions;
+            if (!resRootPath) {
+                const lastSlashIndex = data.lastIndexOf('/');
+                if (lastSlashIndex < 0) {
+                    resRootPath = './';
+                } else {
+                    resRootPath = data.substring(0, lastSlashIndex);
+                }
+            }
             return fetchFunction(data, fetchOptions)
                 .then(response => response.json())
                 .then(json => {
-                    this._parse(json);
+                    this._parse(json, resRootPath);
                     return this;
                 });
         } else {
-            this._parse(data);
+            this._parse(data, resRootPath || './');
             return Promise.resolve(this);
         }
+    }
+
+    getMSDJSON() {
+        return copyJSON(this._msdJSON);
+    }
+
+    getMapJSON() {
+        return copyJSON(this._json);
     }
 
     getView() {
@@ -93,7 +110,20 @@ export default class MapJSONLoader {
         return this._json && this._json.layers[0].options.sceneConfig;
     }
 
-    _parse(json) {
+    _parse(json, resRootPath) {
+        if (resRootPath !== './' && resRootPath !== '.') {
+            const lastChar = resRootPath[resRootPath.length - 1];
+            if (lastChar !== '/') {
+                resRootPath += '/';
+            }
+            this._msdJSON = json;
+            let jsonStr = JSON.stringify(json);
+            // replace all "./res with basePath
+            jsonStr = jsonStr.replace(/".\/res/g, '"' + resRootPath + 'res');    
+            json = JSON.parse(jsonStr);
+        } else {
+            this._msdJSON = copyJSON(json);
+        }
         this._json = json || {};
         this._layers = convertLayer(json.layers[0]);
     }
