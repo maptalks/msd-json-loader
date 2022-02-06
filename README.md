@@ -64,7 +64,7 @@ symbol: {
 ```javascript
 new MSDJSONLoader(options);
 ```
-* options **Object** options
+* options **Object**
   * options.data **String** | **Object** map.json的远程地址或读取出来的map.json对象实例
   * options.basePath **String**     json中资源路径的根路径
 
@@ -141,10 +141,12 @@ await loader.load();
 const layer = loader.getLayer('vt0');
 ````
 * id **String** | **Number** 图层id
+
 **Returns** LayerJSON
 
 ### `getLayers()`
 获取MSD JSON中所有图层的LayerJSON对象数组。
+
 ```js
 const loader = new MSDJSONLoader({
     data: 'path/to/map.json'
