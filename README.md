@@ -13,8 +13,9 @@ msd-json-loader提供了各种接口，用于读取MSD导出的JSON中的整个�
 npm i @maptalks/msd-json-loader
 ```
 或
-```
-<script type="text/javascript" src="https://unpkg.com/@maptalks/msd-json-loader/dist/msdjsonloader.js"></script>
+```html
+<script type="text/javascript"
+ src="https://unpkg.com/@maptalks/msd-json-loader/dist/msdjsonloader.js"></script>
 ```
 
 ## 相对路径转换
